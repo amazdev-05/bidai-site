@@ -1,0 +1,161 @@
+<!-- ============================================================= -->
+<!-- BidAI ProfitEngine — page vitrine (dark / black pro)          -->
+<!-- À coller dans Google Sites : Insérer > Intégrer > Code.       -->
+<!-- Avant de coller, remplace les placeholders :                  -->
+<!--   LIEN_RDV   = ton lien Calendly / Google Agenda              -->
+<!--   LIEN_WA    = https://wa.me/590XXXXXXXXX                     -->
+<!--   LIEN_FORM  = lien de ton Google Form                        -->
+<!--   IMG_APP    = URL d'une capture de l'app (héberge-la)        -->
+<!--   ID_YOUTUBE = id de ta vidéo démo (non répertoriée)          -->
+<!-- Astuce : double-clique ce fichier pour le voir dans ton navigateur. -->
+<!-- ============================================================= -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{--bg:#0E0F13;--surface:#16181F;--border:#272A33;--text:#ECEDEF;--muted:#9AA0AA;--accent:#4C8DFF}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',Roboto,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  .btn{display:inline-block;background:var(--accent);color:#08111f;font-weight:600;padding:14px 26px;border-radius:10px;font-size:15px;transition:transform .2s,box-shadow .2s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(76,141,255,.35)}
+  .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+  .btn.ghost:hover{border-color:var(--accent);box-shadow:none}
+  .eyebrow{color:var(--accent);font-weight:600;font-size:13px;letter-spacing:1px;text-transform:uppercase}
+  h1{font-size:clamp(30px,5vw,46px);font-weight:700;line-height:1.12;letter-spacing:-1px}
+  h2{font-size:clamp(24px,3.5vw,32px);font-weight:600;letter-spacing:-.5px}
+  h3{font-size:19px;font-weight:600}
+  .muted{color:var(--muted)}
+  section{padding:84px 0}
+  nav{position:sticky;top:0;z-index:20;background:rgba(14,15,19,.8);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-weight:700;font-size:18px}.logo span{color:var(--accent)}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px 24px;transition:transform .25s,box-shadow .25s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 0 0 1px var(--accent),0 12px 44px rgba(76,141,255,.18)}
+  .card svg{width:28px;height:28px;stroke:var(--accent);fill:none;stroke-width:1.6;margin-bottom:14px}
+  .soon{font-size:11px;color:var(--accent);border:1px solid var(--accent);border-radius:6px;padding:2px 8px;margin-left:6px}
+  .hero{position:relative;text-align:center;padding-top:96px;overflow:hidden}
+  .hero::before{content:"";position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:760px;height:480px;background:radial-gradient(closest-side,rgba(76,141,255,.22),transparent);filter:blur(20px);z-index:0}
+  .hero .wrap{position:relative;z-index:1}
+  .hero p.sub{font-size:19px;max-width:680px;margin:18px auto 30px}
+  .window{margin:56px auto 0;max-width:880px;background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .window .bar{display:flex;gap:7px;padding:13px 16px;border-bottom:1px solid var(--border)}
+  .window .bar i{width:11px;height:11px;border-radius:50%;background:#3a3d47;display:inline-block}
+  .window .shot{display:block;width:100%}
+  .window .placeholder{padding:64px 20px;text-align:center;color:var(--muted);font-size:14px}
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .panel{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:26px}
+  .panel.accent{border-color:var(--accent)}
+  .panel li{list-style:none;padding:9px 0;border-bottom:1px solid var(--border);font-size:15px}.panel li:last-child{border:0}
+  .step{display:flex;gap:16px;align-items:flex-start;margin-bottom:22px}
+  .step .num{flex:none;width:34px;height:34px;border-radius:50%;background:rgba(76,141,255,.14);color:var(--accent);font-weight:600;display:flex;align-items:center;justify-content:center}
+  details{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:4px 18px;margin-bottom:12px}
+  summary{cursor:pointer;padding:14px 0;font-weight:600;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";float:right;color:var(--accent);font-size:20px;line-height:1}
+  details[open] summary::after{content:"–"}
+  details p{padding:0 0 16px;color:var(--muted)}
+  .cta{background:linear-gradient(180deg,#16181F,#0E0F13);border:1px solid var(--border);border-radius:20px;text-align:center;padding:56px 28px}
+  .cta .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+  footer{border-top:1px solid var(--border);padding:32px 0;color:var(--muted);font-size:14px;text-align:center}
+  @media(max-width:720px){section{padding:60px 0}.twocol{grid-template-columns:1fr}.hero{padding-top:64px}}
+</style>
+
+<nav><div class="wrap">
+  <div class="logo">Bid<span>AI</span> ProfitEngine</div>
+  <a class="btn" href="LIEN_RDV">Réserver 15 min</a>
+</div></nav>
+
+<section class="hero"><div class="wrap">
+  <p class="eyebrow">Chiffrage d'appels d'offres BTP — DOM</p>
+  <h1>Répondez à vos appels d'offres<br>sans y laisser vos nuits — ni vendre à perte.</h1>
+  <p class="sub muted">BidAI analyse votre DQE, le chiffre poste par poste à partir de <b style="color:var(--text)">vos</b> prix, et vous rend un Excel conforme prêt à déposer. Des jours d'ingénieur deviennent des minutes.</p>
+  <a class="btn" href="LIEN_RDV">Réserver 15 minutes de démo</a>
+  <div class="window">
+    <div class="bar"><i></i><i></i><i></i></div>
+    <!-- Remplace ce bloc par : <img class="shot" src="IMG_APP" alt="Chiffrage d'un lot dans BidAI"> -->
+    <div class="placeholder">[ capture de l'app — chiffrage d'un lot, total HT / TVA / TTC ]</div>
+  </div>
+</div></section>
+
+<section><div class="wrap reveal">
+  <p class="eyebrow">Le problème</p>
+  <h2>Répondre à un AO, aujourd'hui, c'est&nbsp;:</h2>
+  <div class="grid3" style="margin-top:32px">
+    <div class="card"><h3>Des jours perdus</h3><p class="muted">Le chiffrage du DQE à la main : des centaines de lignes dans Excel.</p></div>
+    <div class="card"><h3>Une marge à l'aveugle</h3><p class="muted">On découvre trop tard si on a sous-estimé — ou si on s'est tiré une balle dans le pied.</p></div>
+    <div class="card"><h3>Tout refait à zéro</h3><p class="muted">Les mêmes postes rechiffrés à chaque offre, alors qu'ils l'ont déjà été dix fois.</p></div>
+  </div>
+</div></section>
+
+<section style="background:var(--surface)"><div class="wrap reveal">
+  <p class="eyebrow">La solution</p>
+  <h2>BidAI fait le travail répétitif, vous gardez la décision.</h2>
+  <div style="margin-top:34px;max-width:760px">
+    <div class="step"><div class="num">1</div><div><h3>Vous déposez le DCE</h3><p class="muted">L'outil détecte les lots et reconnaît le DQE — même les formats coriaces (multi-onglets, forfait global).</p></div></div>
+    <div class="step"><div class="num">2</div><div><h3>Il chiffre chaque poste</h3><p class="muted">À partir de votre bibliothèque de prix, et signale ce qu'il faut vérifier. Chaque ligne est traçable — aucun prix sorti d'un chapeau.</p></div></div>
+    <div class="step"><div class="num">3</div><div><h3>Vous validez, il injecte</h3><p class="muted">Vos prix réintégrés dans l'Excel d'origine — formules et mise en page intactes. Conforme, prêt à déposer.</p></div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap reveal">
+  <p class="eyebrow">Ce qui nous rend différents</p>
+  <h2>La plupart des outils écrivent du texte. Nous, on sécurise l'argent.</h2>
+  <div class="twocol" style="margin-top:32px">
+    <div class="panel"><h3 class="muted" style="font-weight:500">Les outils « IA pour AO »</h3><ul style="margin-top:10px">
+      <li class="muted">Rédigent un mémoire générique</li><li class="muted">L'IA invente des chiffres (non reproductible)</li><li class="muted">Vous rendent un texte</li><li class="muted">Repartent de zéro à chaque fois</li></ul></div>
+    <div class="panel accent"><h3>BidAI ProfitEngine</h3><ul style="margin-top:10px">
+      <li>Chiffre le DQE poste par poste — votre métier</li><li>Calcul déterministe et auditable</li><li>Vous rend l'Excel conforme exigé par le MOE</li><li>Réutilise votre bibliothèque d'un AO à l'autre</li></ul></div>
+  </div>
+  <p class="muted" style="margin-top:22px;font-style:italic">L'IA est notre moteur, pas notre produit. Le produit, c'est un chiffrage fiable et un livrable propre.</p>
+</div></section>
+
+<section style="background:var(--surface)"><div class="wrap reveal">
+  <p class="eyebrow">Nos briques</p>
+  <h2>Trois briques, un seul réflexe : répondre vite et juste.</h2>
+  <div class="grid3" style="margin-top:32px">
+    <div class="card"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 12l5-3"/></svg><h3>Repérer <span class="soon">bientôt</span></h3><p class="muted">Un radar des appels d'offres BTP des DOM, par département et par corps d'état. Les marchés qui vous concernent, au bon moment.</p></div>
+    <div class="card"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M9 12h6M9 16h6"/></svg><h3>Répondre &amp; chiffrer</h3><p class="muted">Analyser le DQE, chiffrer à partir de vos prix, rendre l'Excel conforme. Version DOM aujourd'hui, nationale ensuite.</p></div>
+    <div class="card"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><h3>Votre bibliothèque</h3><p class="muted">Une base publique pour matcher vos prix vite — et votre bibliothèque privée, qui reste sur votre ordinateur.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap reveal" style="text-align:center">
+  <p class="eyebrow">La preuve</p>
+  <h2>Voyez-le sur un vrai appel d'offres.</h2>
+  <div class="window" style="margin-top:36px">
+    <div class="bar"><i></i><i></i><i></i></div>
+    <!-- Remplace par : <iframe class="shot" style="height:480px" src="https://www.youtube.com/embed/ID_YOUTUBE" frameborder="0" allowfullscreen></iframe> -->
+    <div class="placeholder">[ vidéo démo 2-3 min : du dépôt du DCE à l'Excel rempli ]</div>
+  </div>
+  <p class="muted" style="margin-top:22px">Testé sur de vrais DCE des Antilles-Guyane (gros œuvre, VRD, photovoltaïque…). Le DQE rempli sort conforme au fichier d'origine.</p>
+</div></section>
+
+<section style="background:var(--surface)"><div class="wrap reveal" style="max-width:760px">
+  <p class="eyebrow">Questions fréquentes</p>
+  <h2 style="margin-bottom:28px">Ce qu'on nous demande</h2>
+  <details><summary>« L'IA fera ça toute seule bientôt, non ? »</summary><p>L'IA se plante en silence sur les chiffres, et un devis engage juridiquement. BidAI enveloppe l'IA de calcul déterministe, d'audit et du livrable Excel conforme. C'est ça la valeur.</p></details>
+  <details><summary>« On le fait déjà sur Excel. »</summary><p>Combien d'heures par AO ? Combien d'erreurs ? Ici : des minutes, reproductible, et votre bibliothèque réutilisée à chaque offre.</p></details>
+  <details><summary>« Il existe déjà des outils. »</summary><p>La plupart font la veille ou l'écriture du mémoire. Peu font le chiffrage du DQE + l'injection Excel conforme pour le BTP. C'est notre terrain.</p></details>
+  <details><summary>« Mes prix sont confidentiels. »</summary><p>Votre bibliothèque reste chez vous, isolée. Jamais partagée, jamais revendue.</p></details>
+  <details><summary>« C'est cher ? »</summary><p>Le retour se fait sur un seul AO gagné, ou sur les heures d'ingénieur économisées par offre.</p></details>
+</div></section>
+
+<section><div class="wrap reveal"><div class="cta">
+  <h2>15 minutes pour voir si ça vous fait gagner du temps.</h2>
+  <p class="muted" style="margin-top:10px">Montrez-moi un de vos DQE, je vous montre ce que l'outil en fait.</p>
+  <div class="btns">
+    <a class="btn" href="LIEN_RDV">Réserver un créneau</a>
+    <a class="btn ghost" href="LIEN_FORM">Me laisser un message</a>
+    <a class="btn ghost" href="LIEN_WA">WhatsApp</a>
+  </div>
+</div></div></section>
+
+<footer><div class="wrap">Synergy-BIM — BidAI ProfitEngine · Guadeloupe / Guyane</div></footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
