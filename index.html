@@ -1,6 +1,6 @@
 <!-- ============================================================= -->
 <!-- Chiffré — page vitrine (dark / black pro)                      -->
-<!-- Marque : Chiffré · édition DOM = Chiffrey · nationale = Chiffr  -->
+<!-- Marque : Chiffré · édition DOM-TOM = Shifrey · nationale = Chifr  -->
 <!-- Source déployée (repo bidai-site → GitHub Pages).              -->
 <!-- Placeholders à remplir : LIEN_RDV LIEN_WA LIEN_FORM IMG_APP ID_YOUTUBE -->
 <!-- ============================================================= -->
@@ -63,11 +63,11 @@
 </style>
 
 <nav><div class="wrap">
-  <div class="logo">Chiffr<span>é</span> · <span id="edName">Chiffrey</span></div>
+  <div class="logo">Chiffr<span>é</span> · <span id="edName">Shifrey</span></div>
   <div class="navright">
     <div class="switch" role="group" aria-label="Édition">
-      <button class="ed active" data-ed="dom">Chiffrey · DOM</button>
-      <button class="ed" data-ed="fr">Chiffr · national</button>
+      <button class="ed active" data-ed="dom">Shifrey · DOM-TOM</button>
+      <button class="ed" data-ed="fr">Chifr · national</button>
     </div>
     <a class="btn" href="LIEN_RDV">Réserver 15 min</a>
   </div>
@@ -76,7 +76,7 @@
 <section class="hero"><div class="wrap">
   <p class="eyebrow">Moteur de chiffrage pour réponse à appel d'offres</p>
   <h1>Répondez à vos appels d'offres BTP<br>sans y laisser vos nuits — ni vendre à perte.</h1>
-  <p class="sub muted"><span id="edPhrase">Chiffrey (édition DOM)</span> analyse votre DQE, le chiffre poste par poste à partir de <b style="color:var(--text)">vos</b> prix, et vous rend un Excel conforme prêt à déposer. Des jours d'ingénieur deviennent des minutes.</p>
+  <p class="sub muted"><span id="edPhrase">Shifrey (édition DOM-TOM)</span> analyse votre DQE, le chiffre poste par poste à partir de <b style="color:var(--text)">vos</b> prix, et vous rend un Excel conforme prêt à déposer. Des jours d'ingénieur deviennent des minutes.</p>
   <a class="btn" href="LIEN_RDV">Réserver 15 minutes de démo</a>
   <div class="window">
     <div class="bar"><i></i><i></i><i></i></div>
@@ -122,7 +122,7 @@
   <h2>Trois briques, un seul réflexe : répondre vite et juste.</h2>
   <div class="grid3" style="margin-top:32px">
     <div class="card"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 12l5-3"/></svg><h3>Repérer <span class="soon">bientôt</span></h3><p class="muted">Un radar des appels d'offres BTP des DOM, par département et par corps d'état. Les marchés qui vous concernent, au bon moment.</p></div>
-    <div class="card"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M9 12h6M9 16h6"/></svg><h3>Répondre &amp; chiffrer</h3><p class="muted">Analyser le DQE, chiffrer à partir de vos prix, rendre l'Excel conforme. Édition DOM (Chiffrey) et nationale (Chiffr), même moteur.</p></div>
+    <div class="card"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M9 12h6M9 16h6"/></svg><h3>Répondre &amp; chiffrer</h3><p class="muted">Analyser le DQE, chiffrer à partir de vos prix, rendre l'Excel conforme. Édition DOM-TOM (Shifrey) et nationale (Chifr), même moteur.</p></div>
     <div class="card"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><h3>Vos prix restent chez vous</h3><p class="muted">On ne voit jamais vos prix. Votre bibliothèque reste sur votre ordinateur ; on ne conserve aucune donnée. On fournit le moteur + une base de ~2000 désignations pour démarrer.</p></div>
   </div>
 </div></section>
@@ -157,12 +157,12 @@
   </div>
 </div></div></section>
 
-<footer><div class="wrap">Synergy-BIM — Chiffré (Chiffrey · DOM / Chiffr · national) · Guadeloupe · Guyane · Martinique · Réunion · France métropolitaine</div></footer>
+<footer><div class="wrap">Synergy-BIM — Chiffré (Shifrey · DOM-TOM / Chifr · national) · Guadeloupe · Guyane · Martinique · Réunion · France métropolitaine</div></footer>
 
 <script>
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  const EDIT={dom:{name:"Chiffrey",phrase:"Chiffrey (édition DOM)"},fr:{name:"Chiffr",phrase:"Chiffr (édition nationale)"}};
+  const EDIT={dom:{name:"Shifrey",phrase:"Shifrey (édition DOM-TOM)"},fr:{name:"Chifr",phrase:"Chifr (édition nationale)"}};
   document.querySelectorAll('.ed').forEach(b=>b.addEventListener('click',()=>{
     document.querySelectorAll('.ed').forEach(x=>x.classList.remove('active'));
     b.classList.add('active');
