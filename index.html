@@ -1,13 +1,8 @@
 <!-- ============================================================= -->
-<!-- BidAI ProfitEngine — page vitrine (dark / black pro)          -->
-<!-- À coller dans Google Sites : Insérer > Intégrer > Code.       -->
-<!-- Avant de coller, remplace les placeholders :                  -->
-<!--   LIEN_RDV   = ton lien Calendly / Google Agenda              -->
-<!--   LIEN_WA    = https://wa.me/590XXXXXXXXX                     -->
-<!--   LIEN_FORM  = lien de ton Google Form                        -->
-<!--   IMG_APP    = URL d'une capture de l'app (héberge-la)        -->
-<!--   ID_YOUTUBE = id de ta vidéo démo (non répertoriée)          -->
-<!-- Astuce : double-clique ce fichier pour le voir dans ton navigateur. -->
+<!-- Chiffré — page vitrine (dark / black pro)                      -->
+<!-- Marque : Chiffré · édition DOM = Chiffrey · nationale = Chiffr  -->
+<!-- Source déployée (repo bidai-site → GitHub Pages).              -->
+<!-- Placeholders à remplir : LIEN_RDV LIEN_WA LIEN_FORM IMG_APP ID_YOUTUBE -->
 <!-- ============================================================= -->
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
@@ -27,8 +22,12 @@
   .muted{color:var(--muted)}
   section{padding:84px 0}
   nav{position:sticky;top:0;z-index:20;background:rgba(14,15,19,.8);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .logo{font-weight:700;font-size:18px}.logo span{color:var(--accent)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:14px}
+  .logo{font-weight:700;font-size:18px;white-space:nowrap}.logo span{color:var(--accent)}
+  .navright{display:flex;align-items:center;gap:14px}
+  .switch{display:flex;border:1px solid var(--border);border-radius:9px;overflow:hidden}
+  .ed{background:transparent;color:var(--muted);border:0;padding:8px 12px;font:inherit;font-size:13px;cursor:pointer}
+  .ed.active{background:var(--accent);color:#08111f;font-weight:600}
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
   .reveal.in{opacity:1;transform:none}
   .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
@@ -60,22 +59,28 @@
   .cta{background:linear-gradient(180deg,#16181F,#0E0F13);border:1px solid var(--border);border-radius:20px;text-align:center;padding:56px 28px}
   .cta .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px}
   footer{border-top:1px solid var(--border);padding:32px 0;color:var(--muted);font-size:14px;text-align:center}
-  @media(max-width:720px){section{padding:60px 0}.twocol{grid-template-columns:1fr}.hero{padding-top:64px}}
+  @media(max-width:720px){section{padding:60px 0}.twocol{grid-template-columns:1fr}.hero{padding-top:64px}.logo{font-size:16px}.ed{padding:7px 9px;font-size:12px}}
 </style>
 
 <nav><div class="wrap">
-  <div class="logo">Bid<span>AI</span> ProfitEngine</div>
-  <a class="btn" href="LIEN_RDV">Réserver 15 min</a>
+  <div class="logo">Chiffr<span>é</span> · <span id="edName">Chiffrey</span></div>
+  <div class="navright">
+    <div class="switch" role="group" aria-label="Édition">
+      <button class="ed active" data-ed="dom">Chiffrey · DOM</button>
+      <button class="ed" data-ed="fr">Chiffr · national</button>
+    </div>
+    <a class="btn" href="LIEN_RDV">Réserver 15 min</a>
+  </div>
 </div></nav>
 
 <section class="hero"><div class="wrap">
-  <p class="eyebrow">Chiffrage d'appels d'offres BTP — DOM</p>
-  <h1>Répondez à vos appels d'offres<br>sans y laisser vos nuits — ni vendre à perte.</h1>
-  <p class="sub muted">BidAI analyse votre DQE, le chiffre poste par poste à partir de <b style="color:var(--text)">vos</b> prix, et vous rend un Excel conforme prêt à déposer. Des jours d'ingénieur deviennent des minutes.</p>
+  <p class="eyebrow">Moteur de chiffrage pour réponse à appel d'offres</p>
+  <h1>Répondez à vos appels d'offres BTP<br>sans y laisser vos nuits — ni vendre à perte.</h1>
+  <p class="sub muted"><span id="edPhrase">Chiffrey (édition DOM)</span> analyse votre DQE, le chiffre poste par poste à partir de <b style="color:var(--text)">vos</b> prix, et vous rend un Excel conforme prêt à déposer. Des jours d'ingénieur deviennent des minutes.</p>
   <a class="btn" href="LIEN_RDV">Réserver 15 minutes de démo</a>
   <div class="window">
     <div class="bar"><i></i><i></i><i></i></div>
-    <!-- Remplace ce bloc par : <img class="shot" src="IMG_APP" alt="Chiffrage d'un lot dans BidAI"> -->
+    <!-- Remplace ce bloc par : <img class="shot" src="IMG_APP" alt="Chiffrage d'un lot"> -->
     <div class="placeholder">[ capture de l'app — chiffrage d'un lot, total HT / TVA / TTC ]</div>
   </div>
 </div></section>
@@ -84,17 +89,17 @@
   <p class="eyebrow">Le problème</p>
   <h2>Répondre à un AO, aujourd'hui, c'est&nbsp;:</h2>
   <div class="grid3" style="margin-top:32px">
-    <div class="card"><h3>Des jours perdus</h3><p class="muted">Le chiffrage du DQE à la main : des centaines de lignes dans Excel.</p></div>
-    <div class="card"><h3>Une marge à l'aveugle</h3><p class="muted">On découvre trop tard si on a sous-estimé — ou si on s'est tiré une balle dans le pied.</p></div>
-    <div class="card"><h3>Tout refait à zéro</h3><p class="muted">Les mêmes postes rechiffrés à chaque offre, alors qu'ils l'ont déjà été dix fois.</p></div>
+    <div class="card"><h3>Des pièces non uniformes</h3><p class="muted">Chaque maître d'ouvrage ou bureau d'études a sa façon de travailler — un DQE jamais pareil.</p></div>
+    <div class="card"><h3>Une marge à l'aveugle</h3><p class="muted">Fait à la main, on découvre trop tard si on a sous-estimé — ou si on s'est tiré une balle dans le pied.</p></div>
+    <div class="card"><h3>Tout refait à zéro</h3><p class="muted">On recommence tout le processus à chaque AO, alors qu'on maîtrise déjà nos prix.</p></div>
   </div>
 </div></section>
 
 <section style="background:var(--surface)"><div class="wrap reveal">
   <p class="eyebrow">La solution</p>
-  <h2>BidAI fait le travail répétitif, vous gardez la décision.</h2>
+  <h2>Le moteur de chiffrage couvre tous les cas de DQE. À tout moment, vous gardez la décision.</h2>
   <div style="margin-top:34px;max-width:760px">
-    <div class="step"><div class="num">1</div><div><h3>Vous déposez le DCE</h3><p class="muted">L'outil détecte les lots et reconnaît le DQE — même les formats coriaces (multi-onglets, forfait global).</p></div></div>
+    <div class="step"><div class="num">1</div><div><h3>Vous déposez le DCE</h3><p class="muted">Le moteur détecte les lots et reconnaît le DQE — même les formats coriaces (multi-onglets, forfait global).</p></div></div>
     <div class="step"><div class="num">2</div><div><h3>Il chiffre chaque poste</h3><p class="muted">À partir de votre bibliothèque de prix, et signale ce qu'il faut vérifier. Chaque ligne est traçable — aucun prix sorti d'un chapeau.</p></div></div>
     <div class="step"><div class="num">3</div><div><h3>Vous validez, il injecte</h3><p class="muted">Vos prix réintégrés dans l'Excel d'origine — formules et mise en page intactes. Conforme, prêt à déposer.</p></div></div>
   </div>
@@ -106,7 +111,7 @@
   <div class="twocol" style="margin-top:32px">
     <div class="panel"><h3 class="muted" style="font-weight:500">Les outils « IA pour AO »</h3><ul style="margin-top:10px">
       <li class="muted">Rédigent un mémoire générique</li><li class="muted">L'IA invente des chiffres (non reproductible)</li><li class="muted">Vous rendent un texte</li><li class="muted">Repartent de zéro à chaque fois</li></ul></div>
-    <div class="panel accent"><h3>BidAI ProfitEngine</h3><ul style="margin-top:10px">
+    <div class="panel accent"><h3>Chiffré</h3><ul style="margin-top:10px">
       <li>Chiffre le DQE poste par poste — votre métier</li><li>Calcul déterministe et auditable</li><li>Vous rend l'Excel conforme exigé par le MOE</li><li>Réutilise votre bibliothèque d'un AO à l'autre</li></ul></div>
   </div>
   <p class="muted" style="margin-top:22px;font-style:italic">L'IA est notre moteur, pas notre produit. Le produit, c'est un chiffrage fiable et un livrable propre.</p>
@@ -117,8 +122,8 @@
   <h2>Trois briques, un seul réflexe : répondre vite et juste.</h2>
   <div class="grid3" style="margin-top:32px">
     <div class="card"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 12l5-3"/></svg><h3>Repérer <span class="soon">bientôt</span></h3><p class="muted">Un radar des appels d'offres BTP des DOM, par département et par corps d'état. Les marchés qui vous concernent, au bon moment.</p></div>
-    <div class="card"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M9 12h6M9 16h6"/></svg><h3>Répondre &amp; chiffrer</h3><p class="muted">Analyser le DQE, chiffrer à partir de vos prix, rendre l'Excel conforme. Version DOM aujourd'hui, nationale ensuite.</p></div>
-    <div class="card"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><h3>Votre bibliothèque</h3><p class="muted">Une base publique pour matcher vos prix vite — et votre bibliothèque privée, qui reste sur votre ordinateur.</p></div>
+    <div class="card"><svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M9 12h6M9 16h6"/></svg><h3>Répondre &amp; chiffrer</h3><p class="muted">Analyser le DQE, chiffrer à partir de vos prix, rendre l'Excel conforme. Édition DOM (Chiffrey) et nationale (Chiffr), même moteur.</p></div>
+    <div class="card"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><h3>Vos prix restent chez vous</h3><p class="muted">On ne voit jamais vos prix. Votre bibliothèque reste sur votre ordinateur ; on ne conserve aucune donnée. On fournit le moteur + une base de ~2000 désignations pour démarrer.</p></div>
   </div>
 </div></section>
 
@@ -136,16 +141,15 @@
 <section style="background:var(--surface)"><div class="wrap reveal" style="max-width:760px">
   <p class="eyebrow">Questions fréquentes</p>
   <h2 style="margin-bottom:28px">Ce qu'on nous demande</h2>
-  <details><summary>« L'IA fera ça toute seule bientôt, non ? »</summary><p>L'IA se plante en silence sur les chiffres, et un devis engage juridiquement. BidAI enveloppe l'IA de calcul déterministe, d'audit et du livrable Excel conforme. C'est ça la valeur.</p></details>
-  <details><summary>« On le fait déjà sur Excel. »</summary><p>Combien d'heures par AO ? Combien d'erreurs ? Ici : des minutes, reproductible, et votre bibliothèque réutilisée à chaque offre.</p></details>
-  <details><summary>« Il existe déjà des outils. »</summary><p>La plupart font la veille ou l'écriture du mémoire. Peu font le chiffrage du DQE + l'injection Excel conforme pour le BTP. C'est notre terrain.</p></details>
-  <details><summary>« Mes prix sont confidentiels. »</summary><p>Votre bibliothèque reste chez vous, isolée. Jamais partagée, jamais revendue.</p></details>
-  <details><summary>« C'est cher ? »</summary><p>Le retour se fait sur un seul AO gagné, ou sur les heures d'ingénieur économisées par offre.</p></details>
+  <details><summary>« L'IA fera ça toute seule, non ? »</summary><p>Sur le marché, aucune IA ne répond aujourd'hui à ça. Nous ne vendons pas une IA — on s'est concentrés sur le moteur (du codage, assisté par IA). Une IA est encore loin de produire des calculs propres et un AO fini sans décision humaine. Notre promesse : arrêter de vous battre avec ce document, et un audit pour avoir l'assurance de la qualité de votre réponse (DQE / CCTP / DPGF / BPU).</p></details>
+  <details><summary>« On le fait déjà sur Excel. »</summary><p>Oui — et si vous voulez continuer à la main, c'est ok aussi. Mais combien d'heures par AO, et combien d'erreurs ? Ici : des minutes, reproductible, et votre bibliothèque réutilisée à chaque offre.</p></details>
+  <details><summary>« Il existe déjà des outils. »</summary><p>La plupart font la veille ou l'écriture du mémoire. Peu font le chiffrage du DQE + l'injection Excel conforme pour le BTP. C'est notre terrain — et on se compare volontiers à Batiprix, Onaya et les autres.</p></details>
+  <details><summary>« Mes prix sont confidentiels. »</summary><p>Votre bibliothèque reste chez vous, isolée. On n'y a même pas accès — on ne voit jamais vos prix, on ne conserve aucune donnée.</p></details>
 </div></section>
 
 <section><div class="wrap reveal"><div class="cta">
   <h2>15 minutes pour voir si ça vous fait gagner du temps.</h2>
-  <p class="muted" style="margin-top:10px">Montrez-moi un de vos DQE, je vous montre ce que l'outil en fait.</p>
+  <p class="muted" style="margin-top:10px">Montrez-moi un de vos DQE, je vous montre ce que le moteur en fait.</p>
   <div class="btns">
     <a class="btn" href="LIEN_RDV">Réserver un créneau</a>
     <a class="btn ghost" href="LIEN_FORM">Me laisser un message</a>
@@ -153,9 +157,17 @@
   </div>
 </div></div></section>
 
-<footer><div class="wrap">Synergy-BIM — BidAI ProfitEngine · Guadeloupe / Guyane</div></footer>
+<footer><div class="wrap">Synergy-BIM — Chiffré (Chiffrey · DOM / Chiffr · national) · Guadeloupe · Guyane · Martinique · Réunion · France métropolitaine</div></footer>
 
 <script>
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  const EDIT={dom:{name:"Chiffrey",phrase:"Chiffrey (édition DOM)"},fr:{name:"Chiffr",phrase:"Chiffr (édition nationale)"}};
+  document.querySelectorAll('.ed').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('.ed').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    const e=EDIT[b.dataset.ed];
+    document.getElementById('edName').textContent=e.name;
+    document.getElementById('edPhrase').textContent=e.phrase;
+  }));
 </script>
